@@ -1,0 +1,66 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Login</title>
+     <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="cajafuera">
+    <div class="formulariocaja"><br><br>
+        <h1 class="titulo">LOGIN</h1><br><br>
+		<!--Formulario para el login -->
+        <form id="frmlogin" class="grupo-entradas" method="POST" action="login.php">
+		<b> Correo</b>
+        <input type="email" class="cajaentradatexto" name="txtcorreo" required>
+		<b> Contraseña</b>
+        <input type="password" class="cajaentradatexto" name="txtpassword" required>
+        <div class="checkboxvai"><a onclick="abrirform()">Recuperar contraseña</a></div>
+        <button type="submit" class="botonenviar" name="btnloginx">Iniciar sesión</button>
+        </form>
+        </div>
+    </div>
+    <script>
+    var x = document.getElementById("frmlogin");
+    var z = document.getElementById("btnvai");
+	var textcolor1=document.getElementById("vaibtnlogin");
+	textcolor1.style.color="white";
+
+            function loginvai()
+		{
+			
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0";
+			textcolor1.style.color="white";
+
+        }
+		
+		function abrirform() {
+  document.getElementById("formrecuperar").style.display = "block";
+  
+}
+
+function cancelarform() {
+  document.getElementById("formrecuperar").style.display = "none";
+}
+    </script>
+<div class="caja_popup" id="formrecuperar">
+  <form action="recuperar.php" class="contenedor_popup" method="POST">
+        <table>
+		<tr><th colspan="2">Recuperar contraseña</th></tr>
+            <tr> 
+                <td>Correo</b></td>
+                <td><input type="email" name="txtcorreo" required class="cajaentradatexto"></td>
+            </tr>
+            <tr> 	
+               <td colspan="2">
+				   <button type="button" onclick="cancelarform()" class="txtrecuperar">Cancelar</button>
+				   <input class="txtrecuperar" type="submit" name="btnrecuperar" value="Enviar" onClick="javascript: return confirm('¿Deseas enviar tu contraseña a tu correo?');">
+			</td>
+            </tr>
+        </table>
+    </form>
+	</div>
+</body>
+</html>
